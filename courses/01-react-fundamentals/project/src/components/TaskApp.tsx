@@ -37,6 +37,7 @@ export default function TaskApp(_props: TaskAppProps) {
       <TaskList
         tasks={_props.tasks}
         onToggle={handleToggleTask}
+        onDelete={_props.onDelete}
       />
     </>
   )
