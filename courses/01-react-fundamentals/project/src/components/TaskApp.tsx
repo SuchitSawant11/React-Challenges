@@ -22,16 +22,22 @@ export default function TaskApp(_props: TaskAppProps) {
     }
   }
 
+  const handleToggleTask = (id: string | number) => {
+    if (_props.setTasks) {
+      _props.setTasks((prev) => prev.map((t) => t.id === id ? { ...t, completed: !t.completed } : t))
+    }
+  }
+
   return (
     <>
-      <div id="task-count">
-        {_props.tasks?.length || 0} Tasks
-      </div>
-
       {_props.showForm && (
         <TaskForm onAddTask={handleAddTask} />
       )}
-      <TaskList tasks={_props.tasks} />
+
+      <TaskList
+        tasks={_props.tasks}
+        onToggle={handleToggleTask}
+      />
     </>
   )
 }

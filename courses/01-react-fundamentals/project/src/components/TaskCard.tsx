@@ -9,10 +9,28 @@ interface TaskCardProps {
 
 export default function TaskCard(_props: TaskCardProps) {
   return (
-    <article id="task-card">
-      <h2>{_props.title}</h2>
-      <p>{_props.description}</p>
-      <span>Priority: {_props.priority}</span>
+    <article id="task-card" data-completed={_props.completed}>
+
+      <h2 style={{
+        textDecoration: _props.completed ? "line-through" : "none"
+      }}>{_props.title}</h2>
+
+      <p style={{
+        textDecoration: _props.completed ? "line-through" : "none"
+      }}>{_props.description}</p>
+
+      <p>Priority: {_props.priority}</p>
+
+      {_props.onToggle && (
+        <label>Completed:
+          <input
+            type="checkbox"
+            checked={_props.completed}
+            onChange={() => _props.onToggle?.(_props.taskId ?? "")}
+          />
+        </label>
+      )}
+
     </article>
   )
 }

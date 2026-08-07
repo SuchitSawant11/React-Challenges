@@ -48,7 +48,16 @@ const hardcodedTasks: Task[] = [
 export default function TaskList(_props: TaskListProps) {
   const list = _props.tasks ?? hardcodedTasks
 
+  const completedCount =
+    _props.tasks?.filter(task => task.completed).length || 0
+
+  const totalTasks = _props.tasks?.length || 0
+
   return <section id="task-list" >
+    <div id="task-count">
+      {completedCount} of {totalTasks} completed
+    </div>
+
     {list.map((t) => (
       <TaskCard
         key={t.id}
@@ -56,6 +65,8 @@ export default function TaskList(_props: TaskListProps) {
         description={t.description}
         priority={t.priority}
         completed={t.completed}
+        onToggle={_props.onToggle}
+        taskId={t.id}
       />
     ))}
   </section>

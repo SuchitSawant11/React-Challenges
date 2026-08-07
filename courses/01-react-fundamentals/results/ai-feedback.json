@@ -1,21 +1,5 @@
 [
   {
-    "challengeId": "01-static-task-display",
-    "challengeName": "Static Task Display",
-    "aiReview": {
-      "challengeId": "01-static-task-display",
-      "timestamp": "2026-08-07T08:10:15.539Z",
-      "score": 0,
-      "feedback": [],
-      "strengths": [],
-      "improvements": [],
-      "readability": 0,
-      "maintainability": 0,
-      "overall": "",
-      "error": "GROQ_API_KEY environment variable not set. AI review skipped."
-    }
-  },
-  {
     "challengeId": "02-dynamic-task-rendering",
     "challengeName": "Dynamic Task Rendering",
     "aiReview": {
@@ -59,6 +43,52 @@
       "readability": 85,
       "maintainability": 90,
       "overall": "The code is well-structured and easy to understand, with a good balance of readability and maintainability. However, there are some areas where the code could be improved, such as simplifying the `handleSubmit` function and adding more robust validation to the `TaskForm` component."
+    }
+  },
+  {
+    "challengeId": "04-task-completion-toggle",
+    "challengeName": "Task Completion Toggle",
+    "aiReview": {
+      "challengeId": "04-task-completion-toggle",
+      "timestamp": "2026-08-07T10:49:18.088Z",
+      "score": 83,
+      "feedback": [],
+      "strengths": [
+        "The code is well-organized and follows a consistent structure.",
+        "The use of TypeScript and functional components is a good practice.",
+        "The code is relatively free of errors and warnings."
+      ],
+      "improvements": [
+        "In the `TaskCard` component, the `onToggle` function is not checked for null or undefined before calling it. This could lead to a runtime error if the function is not provided. Consider adding a null check or using the optional chaining operator (`?.`) to safely call the function.",
+        "In the `TaskList` component, the `completedCount` and `totalTasks` variables are not memoized. If the `tasks` array is large, recalculating these values on every render could lead to performance issues. Consider using the `useMemo` hook to memoize these values.",
+        "In the `TaskApp` component, the `handleDelete` function is not properly handled when the user confirms deletion. Consider using a more robust approach to handle deletion, such as using a separate `useEffect` hook to update the state after deletion."
+      ],
+      "readability": 85,
+      "maintainability": 80,
+      "overall": "The code is well-structured and follows good practices, but there are some areas that could be improved for better maintainability and performance."
+    }
+  },
+  {
+    "challengeId": "01-static-task-display",
+    "challengeName": "Static Task Display",
+    "aiReview": {
+      "challengeId": "01-static-task-display",
+      "timestamp": "2026-08-07T10:50:09.210Z",
+      "score": 88,
+      "feedback": [],
+      "strengths": [
+        "The code is well-organized and follows a consistent naming convention.",
+        "The use of TypeScript interfaces and props typing is excellent for maintaining code quality and preventing errors.",
+        "The code is mostly free of unnecessary complexity and redundant code."
+      ],
+      "improvements": [
+        "Some of the variable names could be more descriptive. For example, `_props` could be renamed to `props` for better readability.",
+        "The `completed` property in the `TaskCard` component could be replaced with a more robust way of handling completed tasks, such as using a separate `completed` state variable.",
+        "The `TaskList` component could benefit from a more robust way of handling task deletion, such as using a separate `onDelete` function instead of relying on the `handleDelete` function from the `App` component."
+      ],
+      "readability": 85,
+      "maintainability": 90,
+      "overall": "The code is well-structured and follows best practices for React and TypeScript development. However, there are some minor improvements that could be made to increase readability and maintainability."
     }
   }
 ]
