@@ -1,1 +1,64 @@
-[]
+[
+  {
+    "challengeId": "01-static-task-display",
+    "challengeName": "Static Task Display",
+    "aiReview": {
+      "challengeId": "01-static-task-display",
+      "timestamp": "2026-08-07T08:10:15.539Z",
+      "score": 0,
+      "feedback": [],
+      "strengths": [],
+      "improvements": [],
+      "readability": 0,
+      "maintainability": 0,
+      "overall": "",
+      "error": "GROQ_API_KEY environment variable not set. AI review skipped."
+    }
+  },
+  {
+    "challengeId": "02-dynamic-task-rendering",
+    "challengeName": "Dynamic Task Rendering",
+    "aiReview": {
+      "challengeId": "02-dynamic-task-rendering",
+      "timestamp": "2026-08-07T08:16:52.233Z",
+      "score": 88,
+      "feedback": [],
+      "strengths": [
+        "The code is well-structured and follows a consistent naming convention.",
+        "The use of TypeScript and functional components is a good practice.",
+        "The code is relatively free of errors and warnings."
+      ],
+      "improvements": [
+        "Consider adding JSDoc comments to explain the purpose of each function and interface.",
+        "In the `TaskList` component, the `countText` prop is not used when `tasks` is passed. Consider removing it or using it to display the task count.",
+        "In the `TaskApp` component, the `onDelete` prop is not used when `tasks` is passed. Consider removing it or using it to handle task deletion."
+      ],
+      "readability": 85,
+      "maintainability": 90,
+      "overall": "The code is well-structured and follows good practices. However, there are a few areas that can be improved to make the code more maintainable and efficient. With some minor adjustments, the code can be even better."
+    }
+  },
+  {
+    "challengeId": "03-adding-new-tasks",
+    "challengeName": "Adding New Tasks",
+    "aiReview": {
+      "challengeId": "03-adding-new-tasks",
+      "timestamp": "2026-08-07T08:17:35.934Z",
+      "score": 88,
+      "feedback": [],
+      "strengths": [
+        "The code is well-organized and follows a consistent naming convention.",
+        "The use of TypeScript is a great choice for a project of this complexity.",
+        "The code is relatively easy to understand, even for developers who are not familiar with the specific requirements of the challenge."
+      ],
+      "improvements": [
+        "The `handleSubmit` function in `TaskForm.tsx` could be simplified by using the `useState` hook's `update` method instead of manually updating the state variables.",
+        "The `TaskForm` component could benefit from a more robust validation mechanism, such as using a separate validation function or library.",
+        "The `TaskList` component could be improved by adding a `key` prop to the `TaskCard` component to prevent unnecessary re-renders."
+      ],
+      "readability": 85,
+      "maintainability": 90,
+      "overall": "The code is well-structured and easy to understand, with a good balance of readability and maintainability. However, there are some areas where the code could be improved, such as simplifying the `handleSubmit` function and adding more robust validation to the `TaskForm` component."
+    }
+  }
+]
