@@ -4,7 +4,7 @@ export interface Task {
   id: string | number
   title: string
   description: string
-  priority: string
+  priority: 'High' | 'Medium' | 'Low'
   completed: boolean
   category?: string
   tags?: string[]

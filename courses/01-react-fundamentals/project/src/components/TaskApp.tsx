@@ -2,7 +2,7 @@ import type { Dispatch, SetStateAction } from 'react'
 import type { Task } from './TaskList'
 import TaskList from './TaskList'
 import TaskForm from './TaskForm'
-import {useState} from 'react'
+import { useState } from 'react'
 import FilterBar from './FilterBar'
 
 interface TaskAppProps {
@@ -20,9 +20,35 @@ interface TaskAppProps {
 export default function TaskApp(_props: TaskAppProps) {
   const [filter, setFilter] = useState<'all' | 'active' | 'completed'>('all')
 
-  const tasks= _props.tasks ?? []
+  const tasks = _props.tasks ?? []
 
   const filteredTasks = filter === 'all' ? tasks : filter === 'active' ? tasks.filter(task => !task.completed) : tasks.filter(task => task.completed)
+
+  const [sortOrder, setSortOrder] = useState<'recent' | 'highToLow' | 'lowToHigh' | 'alphabetical'>('recent')
+
+  const priorityOrder = { 'High': 3, 'Medium': 2, 'Low': 1 }
+
+  const sortedTasks = [...filteredTasks].sort((a, b) => {
+    if (sortOrder === 'recent') {
+      return 0
+    }
+
+    if (sortOrder === 'highToLow') {
+      return priorityOrder[b.priority] - priorityOrder[a.priority]
+    }
+
+    if (sortOrder === 'lowToHigh') {
+      return priorityOrder[a.priority] - priorityOrder[b.priority]
+    }
+
+    if (sortOrder === 'alphabetical') {
+      return a.title.localeCompare(b.title, undefined, {
+        sensitivity: 'base'
+      })
+    }
+
+    return 0
+  })
 
   const handleAddTask = (task: Task) => {
     if (_props.setTasks) {
@@ -43,7 +69,7 @@ export default function TaskApp(_props: TaskAppProps) {
       )}
 
       {_props.showFilterBar && (
-        <FilterBar filter={filter} onFilterChange={setFilter} />
+        <FilterBar filter={filter} onFilterChange={setFilter} sortOrder={sortOrder} onSortOrderChange={setSortOrder} />
       )}
 
       <div id="task-count">
@@ -57,7 +83,7 @@ export default function TaskApp(_props: TaskAppProps) {
       )}
 
       <TaskList
-        tasks={filteredTasks}
+        tasks={sortedTasks}
         onToggle={handleToggleTask}
         onDelete={_props.onDelete}
       />
