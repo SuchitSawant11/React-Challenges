@@ -64,7 +64,7 @@ export default function TaskList(_props: TaskListProps) {
   const totalTasks = list.length || 0
 
   return <section id="task-list" >
-    <div id="task-count">
+    <div id="completed-task-count">
       {_props.countText ??
         `${completedCount} of ${totalTasks} completed`}
     </div>
