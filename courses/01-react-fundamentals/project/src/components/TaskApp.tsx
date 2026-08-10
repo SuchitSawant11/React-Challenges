@@ -2,7 +2,7 @@ import type { Dispatch, SetStateAction } from 'react'
 import type { Task } from './TaskList'
 import TaskList from './TaskList'
 import TaskForm from './TaskForm'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import FilterBar from './FilterBar'
 
 interface TaskAppProps {
@@ -27,9 +27,20 @@ export default function TaskApp(_props: TaskAppProps) {
 
   //Search
   const [search, setSearch] = useState('')
+  const [debouncedSearch, setDebouncedSearch] = useState("")
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setDebouncedSearch(search)
+    }, 300)
+
+    return () => {
+      clearTimeout(timeout)
+    }
+  }, [search])
 
   const searchedTasks = filteredTasks.filter(task => {
-    const searchText = search.toLowerCase()
+    const searchText = debouncedSearch.toLowerCase()
 
     return (
       task.title.toLowerCase().includes(searchText) ||
@@ -39,7 +50,7 @@ export default function TaskApp(_props: TaskAppProps) {
 
   //Sort
   const [sortOrder, setSortOrder] = useState<'recent' | 'highToLow' | 'lowToHigh' | 'alphabetical'>('recent')
-  
+
   const priorityOrder = { 'High': 3, 'Medium': 2, 'Low': 1 }
 
   const sortedTasks = [...searchedTasks].sort((a, b) => {
@@ -119,6 +130,10 @@ export default function TaskApp(_props: TaskAppProps) {
       <div id="task-count">
         Showing {searchedTasks.length} of {tasks.length} tasks
       </div>
+
+      {search !== debouncedSearch && (
+        <p id="searching-indicator">Searching...</p>
+      )}
 
       {searchedTasks.length === 0 && (
         <p id="filter-empty-message">

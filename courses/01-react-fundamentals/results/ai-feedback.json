@@ -228,5 +228,28 @@
       "maintainability": 90,
       "overall": "The code is well-structured and maintainable, but there are some areas for improvement. With some refactoring and error handling, this code could be even more robust and reliable."
     }
+  },
+  {
+    "challengeId": "11-useeffect-debounced-search",
+    "challengeName": "useEffect - Debounced Search",
+    "aiReview": {
+      "challengeId": "11-useeffect-debounced-search",
+      "timestamp": "2026-08-10T12:44:00.571Z",
+      "score": 88,
+      "feedback": [],
+      "strengths": [
+        "The code is well-structured and follows a consistent naming convention.",
+        "The use of TypeScript and React functional components is a good practice.",
+        "The code includes a clear and concise implementation of debounced search functionality."
+      ],
+      "improvements": [
+        "Some of the variable names could be more descriptive. For example, `debouncedSearch` could be renamed to `effectiveSearchTerm`.",
+        "The `useEffect` hook could be refactored to handle the debouncing logic in a more centralized way.",
+        "The code could benefit from additional comments or documentation to explain the purpose of certain functions or variables."
+      ],
+      "readability": 85,
+      "maintainability": 90,
+      "overall": "The code is well-organized and effectively implements the debounced search functionality. However, there are some areas for improvement in terms of variable naming and code organization."
+    }
   }
 ]
