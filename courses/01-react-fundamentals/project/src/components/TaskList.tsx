@@ -17,6 +17,17 @@ interface TaskListProps {
   onToggle?: (id: string | number) => void
   onDelete?: (id: string | number) => void
   linkToTaskDetail?: boolean
+  onUpdateTask?: (
+    id: string | number,
+    updates: {
+      title: string
+      description: string
+      priority: "Low" | "Medium" | "High"
+    }
+  ) => void
+  editingId?: string | number | null
+  onEdit?: (id: string | number) => void
+  onCancelEdit?: () => void
 }
 
 const hardcodedTasks: Task[] = [
@@ -68,6 +79,10 @@ export default function TaskList(_props: TaskListProps) {
         onToggle={_props.onToggle}
         taskId={t.id}
         onDelete={_props.onDelete}
+        onUpdateTask={_props.onUpdateTask}
+        editing={_props.editingId === t.id}
+        onEdit={_props.onEdit}
+        onCancelEdit={_props.onCancelEdit}
       />
     ))}
   </section>
