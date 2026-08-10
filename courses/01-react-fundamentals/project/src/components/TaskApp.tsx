@@ -18,17 +18,31 @@ interface TaskAppProps {
 }
 
 export default function TaskApp(_props: TaskAppProps) {
+  //Filter
   const [filter, setFilter] = useState<'all' | 'active' | 'completed'>('all')
 
   const tasks = _props.tasks ?? []
 
   const filteredTasks = filter === 'all' ? tasks : filter === 'active' ? tasks.filter(task => !task.completed) : tasks.filter(task => task.completed)
 
-  const [sortOrder, setSortOrder] = useState<'recent' | 'highToLow' | 'lowToHigh' | 'alphabetical'>('recent')
+  //Search
+  const [search, setSearch] = useState('')
 
+  const searchedTasks = filteredTasks.filter(task => {
+    const searchText = search.toLowerCase()
+
+    return (
+      task.title.toLowerCase().includes(searchText) ||
+      task.description.toLowerCase().includes(searchText)
+    )
+  })
+
+  //Sort
+  const [sortOrder, setSortOrder] = useState<'recent' | 'highToLow' | 'lowToHigh' | 'alphabetical'>('recent')
+  
   const priorityOrder = { 'High': 3, 'Medium': 2, 'Low': 1 }
 
-  const sortedTasks = [...filteredTasks].sort((a, b) => {
+  const sortedTasks = [...searchedTasks].sort((a, b) => {
     if (sortOrder === 'recent') {
       return 0
     }
@@ -92,16 +106,23 @@ export default function TaskApp(_props: TaskAppProps) {
       )}
 
       {_props.showFilterBar && (
-        <FilterBar filter={filter} onFilterChange={setFilter} sortOrder={sortOrder} onSortOrderChange={setSortOrder} />
+        <FilterBar
+          filter={filter}
+          onFilterChange={setFilter}
+          sortOrder={sortOrder}
+          onSortOrderChange={setSortOrder}
+          search={search}
+          onSearchChange={setSearch}
+        />
       )}
 
       <div id="task-count">
-        Showing {filteredTasks.length} of {tasks.length} tasks
+        Showing {searchedTasks.length} of {tasks.length} tasks
       </div>
 
-      {filteredTasks.length === 0 && (
+      {searchedTasks.length === 0 && (
         <p id="filter-empty-message">
-          No tasks match this filter
+          No tasks found
         </p>
       )}
 

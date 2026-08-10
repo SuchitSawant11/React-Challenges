@@ -3,6 +3,8 @@ interface FilterBarProps {
   onFilterChange: (filter: 'all' | 'active' | 'completed') => void
   sortOrder?: 'recent' | 'highToLow' | 'lowToHigh' | 'alphabetical'
   onSortOrderChange?: (sortOrder: 'recent' | 'highToLow' | 'lowToHigh' | 'alphabetical') => void
+  search?: string
+  onSearchChange?: (search: string) => void
 }
 
 export default function FilterBar(_props: FilterBarProps) {
@@ -32,5 +34,22 @@ export default function FilterBar(_props: FilterBarProps) {
       <option value="lowToHigh">Priority: Low to High</option>
       <option value="alphabetical">Alphabetical</option>
     </select>
+
+    <input
+      id="search-input"
+      type="text"
+      placeholder="Search tasks..."
+      value={_props.search ?? ''}
+      onChange={(e) => _props.onSearchChange?.(e.target.value)}
+    />
+
+    {_props.search && (
+      <button
+        id="clear-search"
+        onClick={() => _props.onSearchChange?.("")}
+      >
+        Clear search
+      </button>
+    )}
   </div>
 }
