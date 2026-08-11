@@ -5,6 +5,8 @@ interface TaskCardProps {
   description: string
   priority: "High" | "Medium" | "Low"
   completed?: boolean
+  category?: string
+  tags?: string[]
   onToggle?: (id: string | number) => void
   taskId?: string | number
   onDelete?: (id: string | number) => void
@@ -102,6 +104,18 @@ export default function TaskCard(_props: TaskCardProps) {
           }}>{_props.description}</p>
 
           <p>Priority: {_props.priority}</p>
+
+          <p id="task-category">
+            Category: {_props.category}
+          </p>
+
+          <div id="task-tags">
+            {_props.tags?.map((tag) => (
+              <span key={tag} data-tag={tag}>
+                {tag}
+              </span>
+            ))}
+          </div>
 
           {_props.onToggle && (
             <label>Completed:

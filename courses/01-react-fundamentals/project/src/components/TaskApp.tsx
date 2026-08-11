@@ -25,7 +25,20 @@ export default function TaskApp(_props: TaskAppProps) {
 
   const filteredTasks = filter === 'all' ? tasks : filter === 'active' ? tasks.filter(task => !task.completed) : tasks.filter(task => task.completed)
 
-  //Search
+  //Category filter
+  const [categoryFilter, setCategoryFilter] = useState("all")
+
+  const categories = [
+    ...new Set(
+      tasks
+        .map(task => task.category)
+        .filter((category): category is string => Boolean(category))
+    )
+  ]
+
+  const categoryFilteredTasks = categoryFilter === "all" ? filteredTasks : filteredTasks.filter(task => task.category === categoryFilter)
+
+  //Search + Debounced search
   const [search, setSearch] = useState('')
   const [debouncedSearch, setDebouncedSearch] = useState("")
 
@@ -39,7 +52,7 @@ export default function TaskApp(_props: TaskAppProps) {
     }
   }, [search])
 
-  const searchedTasks = filteredTasks.filter(task => {
+  const searchedTasks = categoryFilteredTasks.filter(task => {
     const searchText = debouncedSearch.toLowerCase()
 
     return (
@@ -124,6 +137,9 @@ export default function TaskApp(_props: TaskAppProps) {
           onSortOrderChange={setSortOrder}
           search={search}
           onSearchChange={setSearch}
+          categoryFilter={categoryFilter}
+          onCategoryChange={setCategoryFilter}
+          categories={categories}
         />
       )}
 

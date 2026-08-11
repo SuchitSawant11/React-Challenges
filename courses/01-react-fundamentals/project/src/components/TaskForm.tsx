@@ -8,8 +8,10 @@ interface TaskFormProps {
 export default function TaskForm(_props: TaskFormProps) {
   const [title, setTitle] = useState("")
   const [description, setDescription] = useState("")
-  const [priority, setPriority] = useState("Low")
+  const [priority, setPriority] = useState<"Low" | "Medium" | "High">("Low")
   const [error, setError] = useState("")
+  const [category, setCategory] = useState("General")
+  const [tags, setTags] = useState("")
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -20,10 +22,12 @@ export default function TaskForm(_props: TaskFormProps) {
     }
     
       setError("")
-      _props.onAddTask?.({ id: Date.now().toString(), title, description, priority, completed: false })
+      _props.onAddTask?.({ id: Date.now().toString(), title, description, priority, completed: false, category, tags: tags.split(",").map(tag => tag.trim()).filter(tag => tag) })
       setTitle("")
       setDescription("")
       setPriority("Low")
+      setCategory("General")
+      setTags("")
   }
 
   return (
@@ -35,11 +39,22 @@ export default function TaskForm(_props: TaskFormProps) {
       <textarea id="task-desc" name="task-desc" value={description} onChange={(e) => setDescription(e.target.value)} />
 
       <label htmlFor="task-priority">Priority</label>
-      <select id="task-priority" name="task-priority" value={priority} onChange={(e) => setPriority(e.target.value)}>
+      <select id="task-priority" name="task-priority" value={priority} onChange={(e) => setPriority(e.target.value as "Low" | "Medium" | "High")}>
         <option value="Low">Low</option>
         <option value="Medium">Medium</option>
         <option value="High">High</option>
       </select>
+
+      <label htmlFor="task-category">Category</label>
+      <select id="task-category" name="task-category" value={category} onChange={(e) => setCategory(e.target.value)}>
+        <option value="General">General</option>
+        <option value="Work">Work</option>
+        <option value="Personal">Personal</option>
+        <option value="Dynamic">Dynamic</option>
+      </select>
+
+      <label htmlFor="task-tags">Tags</label>
+      <input type="text" id="task-tags" name="task-tags" value={tags} onChange={(e) => setTags(e.target.value)} placeholder="Comma separated tags" />
 
       <button type="submit">Add Task</button>
 

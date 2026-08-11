@@ -36,7 +36,9 @@ const hardcodedTasks: Task[] = [
     title: "Task One",
     description: "First hardcoded task",
     priority: "High",
-    completed: false
+    completed: false,
+    category: "work",
+    tags: ["urgent", "office"]
   },
 
   {
@@ -44,7 +46,9 @@ const hardcodedTasks: Task[] = [
     title: "Task Two",
     description: "Second hardcoded task",
     priority: "Medium",
-    completed: true
+    completed: true,
+    category: "General",
+    tags: ["important", "meeting"]
   },
 
   {
@@ -52,7 +56,9 @@ const hardcodedTasks: Task[] = [
     title: "Task Three",
     description: "Third hardcoded task",
     priority: "Low",
-    completed: false
+    completed: false,
+    category: "Personal",
+    tags: ["routine", "office"]
   }
 ]
 
@@ -83,6 +89,8 @@ export default function TaskList(_props: TaskListProps) {
         editing={_props.editingId === t.id}
         onEdit={_props.onEdit}
         onCancelEdit={_props.onCancelEdit}
+        category={t.category}
+        tags={t.tags}
       />
     ))}
   </section>
