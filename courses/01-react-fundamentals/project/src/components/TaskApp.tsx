@@ -85,6 +85,24 @@ export default function TaskApp(_props: TaskAppProps) {
       })
     }
 
+    if (sortOrder === "dueDate") {
+      if (!a.dueDate && !b.dueDate) {
+        return 0
+      }
+
+      if (!a.dueDate) {
+        return 1
+      }
+
+      if (!b.dueDate) {
+        return -1
+      }
+
+      return (
+        new Date(a.dueDate).getTime() - new Date(b.dueDate).getTime()
+      )
+    }
+
     return 0
   })
 
@@ -108,6 +126,7 @@ export default function TaskApp(_props: TaskAppProps) {
       title: string
       description: string
       priority: "Low" | "Medium" | "High"
+      dueDate?: string | number
     }
   ) => {
     if (_props.setTasks) {

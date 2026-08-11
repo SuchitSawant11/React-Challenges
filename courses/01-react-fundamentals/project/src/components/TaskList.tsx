@@ -23,6 +23,7 @@ interface TaskListProps {
       title: string
       description: string
       priority: "Low" | "Medium" | "High"
+      dueDate?: string | number
     }
   ) => void
   editingId?: string | number | null
@@ -91,6 +92,7 @@ export default function TaskList(_props: TaskListProps) {
         onCancelEdit={_props.onCancelEdit}
         category={t.category}
         tags={t.tags}
+        dueDate={t.dueDate}
       />
     ))}
   </section>
