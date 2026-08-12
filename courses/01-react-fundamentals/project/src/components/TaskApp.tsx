@@ -7,11 +7,12 @@ import FilterBar from './FilterBar'
 import StatsPanel from './StatsPanel'
 import { useTheme } from '../contexts/ThemeContext'
 import Button from './Button'
+import { TaskAction } from '../reducers/taskReducer'
 
 interface TaskAppProps {
   tasks?: Task[]
   setTasks?: Dispatch<SetStateAction<Task[]>>
-  dispatch?: (action: { type: string; payload?: unknown }) => void
+  dispatch?: (action: TaskAction) => void
   showForm?: boolean
   countFormat?: string
   showFilterBar?: boolean
@@ -153,14 +154,14 @@ export default function TaskApp(_props: TaskAppProps) {
   const [editingId, setEditingId] = useState<string | number | null>(null)
 
   const handleAddTask = (task: Task) => {
-    if (_props.setTasks) {
-      _props.setTasks((prev) => [...prev, task])
+    if (_props.dispatch) {
+      _props.dispatch({ type: 'ADD_TASK', payload: task })
     }
   }
 
   const handleToggleTask = (id: string | number) => {
-    if (_props.setTasks) {
-      _props.setTasks((prev) => prev.map((t) => t.id === id ? { ...t, completed: !t.completed } : t))
+    if (_props.dispatch) {
+      _props.dispatch({ type: 'TOGGLE_TASK', payload: id })
     }
   }
 
@@ -173,17 +174,9 @@ export default function TaskApp(_props: TaskAppProps) {
       dueDate?: string | number
     }
   ) => {
-    if (_props.setTasks) {
-      _props.setTasks(prev =>
-        prev.map(task =>
-          task.id === id
-            ? { ...task, ...updates }
-            : task
-        )
-      )
+    if (_props.dispatch) {
+      _props.dispatch({ type: 'UPDATE_TASK', payload: { id, ...updates } })
     }
-
-    setEditingId(null)
   }
 
   return (
