@@ -8,7 +8,14 @@ interface StatsPanelProps {
 
 export default function StatsPanel(_props: StatsPanelProps) {
   return (
-    <section id="stats-panel">
+    <section
+      id="stats-panel"
+      style={{
+        backgroundColor: 'var(--card-bg)',
+        color: 'var(--text-color)',
+        borderColor: 'var(--border-color)'
+      }}
+    >
       <h2>Task Statistics</h2>
 
       <p>Total: {_props.total ?? 0}</p>

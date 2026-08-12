@@ -5,6 +5,8 @@ import TaskForm from './TaskForm'
 import { useState, useEffect, useMemo } from 'react'
 import FilterBar from './FilterBar'
 import StatsPanel from './StatsPanel'
+import { useTheme } from '../contexts/ThemeContext'
+import Button from './Button'
 
 interface TaskAppProps {
   tasks?: Task[]
@@ -19,13 +21,15 @@ interface TaskAppProps {
 }
 
 export default function TaskApp(_props: TaskAppProps) {
+  const { theme, toggleTheme } = useTheme()
+
   //Filter
   const [filter, setFilter] = useState<'all' | 'active' | 'completed'>('all')
 
   const tasks = _props.tasks ?? []
 
   const stats = useMemo(() => {
-    
+
     const total = tasks.length
 
     const completed = tasks.filter(
@@ -201,6 +205,12 @@ export default function TaskApp(_props: TaskAppProps) {
           categories={categories}
         />
       )}
+
+      <Button
+        id="toggle-theme"
+        type="button"
+        children={theme === 'light' ? 'Dark Mode' : 'Light Mode'}
+        onClick={toggleTheme} />
 
       {_props.showStatsPanel && (
         <StatsPanel
