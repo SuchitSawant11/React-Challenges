@@ -1,5 +1,4 @@
 import './App.css'
-import { useState, useEffect } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import ChallengeList from './components/ChallengeList'
 import TaskList from './components/TaskList'
@@ -8,6 +7,7 @@ import TaskDetailPage from './components/TaskDetailPage'
 import FetchDemoView from './components/FetchDemoView'
 import { ThemeProvider } from './contexts/ThemeContext'
 import type { Task } from './components/TaskList'
+import { useLocalStorage } from './hooks/useLocalStorage'
 
 const INITIAL_TASKS: Task[] = [
   { id: 1, title: 'First Task', description: 'Description one', priority: 'High', completed: false, category: 'Work', tags: ['urgent', 'office'] },
@@ -17,36 +17,11 @@ const INITIAL_TASKS: Task[] = [
   { id: 5, title: 'Fifth Task', description: 'Description five', priority: 'High', completed: false, category: 'Work', tags: ['urgent'] },
 ]
 
-const STORAGE_KEY = 'task-app-tasks'
-
 function AppContent() {
-  const [tasks, setTasks] = useState<Task[]>(() => {
-    const storedTasks = localStorage.getItem(STORAGE_KEY)
-
-    if (!storedTasks) {
-      return INITIAL_TASKS
-    }
-
-    try {
-      const parsedTasks = JSON.parse(storedTasks)
-
-      if (Array.isArray(parsedTasks)) {
-        return parsedTasks.map((task: Task) => ({
-          ...task,
-          category: task.category || "General",
-          tags: Array.isArray(task.tags) ? task.tags : []
-        }))
-      }
-
-      return INITIAL_TASKS
-    } catch {
-      return INITIAL_TASKS
-    }
-  })
-
-  useEffect(() => {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(tasks))
-  }, [tasks])
+  const [tasks, setTasks] = useLocalStorage(
+    'task-app-tasks',
+    INITIAL_TASKS
+  )
 
   const handleDelete = (id: string | number) => {
     if (window.confirm('Are you sure?')) {
