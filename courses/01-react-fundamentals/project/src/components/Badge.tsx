@@ -3,5 +3,9 @@ interface BadgeProps {
 }
 
 export default function Badge(_props: BadgeProps) {
-  return null
+  return (
+    <label className="badge">
+      {_props.children}: 
+    </label>
+  )
 }

@@ -6,5 +6,13 @@ interface ButtonProps {
 }
 
 export default function Button(_props: ButtonProps) {
-  return null
+  return (
+    <button
+      type={_props.type ?? 'button'}
+      onClick={_props.onClick}
+      id={_props.id}
+    >
+      {_props.children}
+    </button>
+  )
 }

@@ -1,3 +1,5 @@
+import FormInput from "./FormInput"
+
 interface FilterBarProps {
   filter: 'all' | 'active' | 'completed'
   onFilterChange: (filter: 'all' | 'active' | 'completed') => void
@@ -45,6 +47,7 @@ export default function FilterBar(_props: FilterBarProps) {
       ))}
     </select>
 
+    <FormInput id="search-input" label="search-input" type="text" placeholder="Search tasks..." value={_props.search ?? ''} onChange={(e) => _props.onSearchChange?.(e.target.value)} />
     <input
       id="search-input"
       type="text"

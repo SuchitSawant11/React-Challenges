@@ -3,5 +3,9 @@ interface StatusIndicatorProps {
 }
 
 export default function StatusIndicator(_props: StatusIndicatorProps) {
-  return null
+  return (
+    <label className="status-indicator">
+      {_props.status}
+    </label>
+  )
 }

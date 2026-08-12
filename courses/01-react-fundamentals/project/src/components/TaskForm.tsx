@@ -1,5 +1,7 @@
 import { useState } from "react"
 import { Task } from "./TaskList"
+import Button from "./Button"
+import FormInput from "./FormInput"
 
 interface TaskFormProps {
   onAddTask?: (task: Task) => void
@@ -35,10 +37,10 @@ export default function TaskForm(_props: TaskFormProps) {
   return (
     <form onSubmit={handleSubmit}>
       <label htmlFor="task-title">Title</label>
-      <input type="text" id="task-title" name="task-title" value={title} onChange={(e) => setTitle(e.target.value)} />
+      <FormInput id="task-title" label="task-title" value={title} onChange={(e) => setTitle(e.target.value)} type="text" />
 
       <label htmlFor="task-desc">Description</label>
-      <textarea id="task-desc" name="task-desc" value={description} onChange={(e) => setDescription(e.target.value)} />
+      <FormInput id="task-desc" label="task-desc" value={description} onChange={(e) => setDescription(e.target.value)} type="textarea" />
 
       <label htmlFor="task-priority">Priority</label>
       <select id="task-priority" name="task-priority" value={priority} onChange={(e) => setPriority(e.target.value as "Low" | "Medium" | "High")}>
@@ -61,7 +63,7 @@ export default function TaskForm(_props: TaskFormProps) {
       <label htmlFor="task-due-date">Due Date</label>
       <input type="date" id="task-due-date" name="task-due-date" value={dueDate} onChange={(e) => setDueDate(e.target.value)} />
 
-      <button type="submit">Add Task</button>
+      <Button type="submit" children="Add Task" />
 
       {error && <p id="task-form-error" style={{ color: "red" }}>{error}</p>}
     </form>

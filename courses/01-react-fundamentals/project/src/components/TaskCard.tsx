@@ -1,4 +1,7 @@
 import { useState } from "react"
+import Button from "./Button"
+import Badge from "./Badge"
+import StatusIndicator from "./StatusIndicator"
 
 interface TaskCardProps {
   title: string
@@ -110,21 +113,19 @@ export default function TaskCard(_props: TaskCardProps) {
             />
           </label>
 
-          <label>
-            Priority:
-            <select
-              value={editPriority}
-              onChange={(e) =>
-                setEditPriority(
-                  e.target.value as "Low" | "Medium" | "High"
-                )
-              }
-            >
-              <option value="Low">Low</option>
-              <option value="Medium">Medium</option>
-              <option value="High">High</option>
-            </select>
-          </label>
+          <Badge children="Priority" />
+          <select
+            value={editPriority}
+            onChange={(e) =>
+              setEditPriority(
+                e.target.value as "Low" | "Medium" | "High"
+              )
+            }
+          >
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
+          </select>
 
           <label>
             Due Date:
@@ -135,8 +136,16 @@ export default function TaskCard(_props: TaskCardProps) {
             />
           </label>
 
-          <button onClick={handleSave}>Save</button>
-          <button onClick={handleCancel}>Cancel</button>
+          <Button
+            onClick={handleSave}
+            type="button"
+            children="Save"
+          />
+          <Button
+            onClick={handleCancel}
+            type="button"
+            children="Cancel"
+          />
         </>
       ) : (
         <>
@@ -148,15 +157,15 @@ export default function TaskCard(_props: TaskCardProps) {
             textDecoration: _props.completed ? "line-through" : "none"
           }}>{_props.description}</p>
 
-          <p>Priority: {_props.priority}</p>
+          <p><Badge children="Priority" /> {_props.priority}</p>
 
           <p id="task-category">
-            Category: {_props.category}
+            <Badge children="Category" /> {_props.category}
           </p>
 
           {_props.tags && (
             <div id="task-tags">
-              <label>Tags: </label>
+              <Badge children="Tags" />
               {_props.tags?.map((tag) => (
                 <span key={tag} data-tag={tag}>
                   {tag},
@@ -172,7 +181,7 @@ export default function TaskCard(_props: TaskCardProps) {
 
           {dueStatus && (
             <span data-overdue={dueStatus === "Overdue" ? "true" : "false"}>
-              {dueStatus}
+              <StatusIndicator status={dueStatus} />
             </span>
           )}
 
@@ -187,13 +196,18 @@ export default function TaskCard(_props: TaskCardProps) {
           )}
 
           {_props.onDelete && (
-            <button onClick={handleDelete}>Delete</button>
+            <Button
+              onClick={handleDelete}
+              type="button"
+              children="Delete" />
           )}
 
           {!_props.editing && (
-            <button onClick={() => _props.onEdit?.(_props.taskId ?? "")}>
-              Edit
-            </button>
+            <Button
+              onClick={() => _props.onEdit?.(_props.taskId ?? "")}
+              type="button"
+              children="Edit"
+            />
           )}
         </>
       )}
