@@ -414,22 +414,6 @@
     }
   },
   {
-    "challengeId": "19-performance-optimization",
-    "challengeName": "Performance Optimization",
-    "aiReview": {
-      "challengeId": "19-performance-optimization",
-      "timestamp": "2026-08-13T07:31:03.008Z",
-      "score": 0,
-      "feedback": [],
-      "strengths": [],
-      "improvements": [],
-      "readability": 0,
-      "maintainability": 0,
-      "overall": "",
-      "error": "Groq API error (413): Request too large for model `llama-3.1-8b-instant` in organization `org_01kz6777wregybetpepm6bw8aa` service tier `on_demand` on tokens per minute (TPM): Limit 6000, Requested 6058, please reduce your message size and try again. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing"
-    }
-  },
-  {
     "challengeId": "20-error-boundaries",
     "challengeName": "Error Boundaries and Error Handling",
     "aiReview": {
@@ -450,6 +434,38 @@
       "readability": 85,
       "maintainability": 90,
       "overall": "The code is well-organized and follows best practices, but there are some areas for improvement to make it even more maintainable and efficient."
+    }
+  },
+  {
+    "challengeId": "21-react-router",
+    "challengeName": "React Router - Routing and Navigation",
+    "aiReview": {
+      "challengeId": "21-react-router",
+      "timestamp": "2026-08-13T12:15:42.702Z",
+      "score": 0,
+      "feedback": [],
+      "strengths": [],
+      "improvements": [],
+      "readability": 0,
+      "maintainability": 0,
+      "overall": "",
+      "error": "Groq API error (413): Request too large for model `llama-3.1-8b-instant` in organization `org_01kz6777wregybetpepm6bw8aa` service tier `on_demand` on tokens per minute (TPM): Limit 6000, Requested 6550, please reduce your message size and try again. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing"
+    }
+  },
+  {
+    "challengeId": "19-performance-optimization",
+    "challengeName": "Performance Optimization",
+    "aiReview": {
+      "challengeId": "19-performance-optimization",
+      "timestamp": "2026-08-13T12:20:10.379Z",
+      "score": 0,
+      "feedback": [],
+      "strengths": [],
+      "improvements": [],
+      "readability": 0,
+      "maintainability": 0,
+      "overall": "",
+      "error": "Groq API error (413): Request too large for model `llama-3.1-8b-instant` in organization `org_01kz6777wregybetpepm6bw8aa` service tier `on_demand` on tokens per minute (TPM): Limit 6000, Requested 6066, please reduce your message size and try again. Need more tokens? Upgrade to Dev Tier today at https://console.groq.com/settings/billing"
     }
   }
 ]

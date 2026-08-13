@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import { Link } from 'react-router-dom'
 import Button from "./Button"
 import Badge from "./Badge"
 import StatusIndicator from "./StatusIndicator"
@@ -26,6 +27,7 @@ interface TaskCardProps {
   onEdit?: (id: string | number) => void
   onCancelEdit?: () => void
   dueDate?: string | number
+  linkToTaskDetail?: boolean
 }
 
 function TaskCard(_props: TaskCardProps) {
@@ -151,7 +153,12 @@ function TaskCard(_props: TaskCardProps) {
         <>
           <h2 style={{
             textDecoration: _props.completed ? "line-through" : "none"
-          }}>{_props.title}</h2>
+          }}>
+            {_props.linkToTaskDetail ? (
+              <Link to={`/challenge/21-react-router/task/${_props.taskId}`}>
+                {_props.title}
+              </Link>) : (_props.title)}
+          </h2>
 
           <p style={{
             textDecoration: _props.completed ? "line-through" : "none"

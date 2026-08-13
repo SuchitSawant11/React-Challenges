@@ -5,7 +5,7 @@ interface BadgeProps {
 export default function Badge(_props: BadgeProps) {
   return (
     <label className="badge">
-      {_props.children}: 
+      {_props.children}: {" "}
     </label>
   )
 }
