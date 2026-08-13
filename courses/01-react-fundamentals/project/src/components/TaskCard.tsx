@@ -1,4 +1,4 @@
-import { useState } from "react"
+import React, { useState } from "react"
 import Button from "./Button"
 import Badge from "./Badge"
 import StatusIndicator from "./StatusIndicator"
@@ -28,7 +28,7 @@ interface TaskCardProps {
   dueDate?: string | number
 }
 
-export default function TaskCard(_props: TaskCardProps) {
+function TaskCard(_props: TaskCardProps) {
   const [editTitle, setEditTitle] = useState(_props.title)
   const [editDescription, setEditDescription] = useState(_props.description)
   const [editPriority, setEditPriority] = useState(_props.priority)
@@ -214,3 +214,5 @@ export default function TaskCard(_props: TaskCardProps) {
     </article>
   )
 }
+
+export default React.memo(TaskCard)

@@ -8,7 +8,7 @@ import FetchDemoView from './components/FetchDemoView'
 import { ThemeProvider } from './contexts/ThemeContext'
 import type { Task } from './components/TaskList'
 import { useLocalStorage } from './hooks/useLocalStorage'
-import {useEffect, useReducer} from 'react'
+import {useCallback, useEffect, useReducer} from 'react'
 import {taskReducer, DELETE_TASK} from './reducers/taskReducer'
 
 const INITIAL_TASKS: Task[] = [
@@ -31,11 +31,11 @@ function AppContent() {
     setStoredTasks(tasks)
   }, [tasks, setStoredTasks])
 
-  const handleDelete = (id: string | number) => {
+  const handleDelete = useCallback((id: string | number) => {
     if (window.confirm('Are you sure?')) {
       dispatch({ type: DELETE_TASK, payload: id })
     }
-  }
+  }, [dispatch])
 
   return (
     <BrowserRouter>

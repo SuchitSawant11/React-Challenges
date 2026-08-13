@@ -3,8 +3,8 @@ import FormInput from "./FormInput"
 interface FilterBarProps {
   filter: 'all' | 'active' | 'completed'
   onFilterChange: (filter: 'all' | 'active' | 'completed') => void
-  sortOrder?: 'recent' | 'highToLow' | 'lowToHigh' | 'alphabetical'
-  onSortOrderChange?: (sortOrder: 'recent' | 'highToLow' | 'lowToHigh' | 'alphabetical') => void
+  sortOrder?: 'recent' | 'highToLow' | 'lowToHigh' | 'alphabetical' | 'dueDate'
+  onSortOrderChange?: (sortOrder: 'recent' | 'highToLow' | 'lowToHigh' | 'alphabetical' | 'dueDate') => void
   search?: string
   onSearchChange?: (search: string) => void
   categoryFilter: string
