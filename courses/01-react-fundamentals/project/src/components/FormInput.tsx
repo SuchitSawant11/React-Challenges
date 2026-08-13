@@ -1,3 +1,5 @@
+import { Ref} from 'react'
+
 interface FormInputProps {
   id?: string
   value?: string
@@ -5,6 +7,7 @@ interface FormInputProps {
   label?: string
   type?: string
   placeholder?: string
+  inputRef?: Ref<HTMLInputElement>
 }
 
 export default function FormInput(_props: FormInputProps) {
@@ -16,6 +19,7 @@ export default function FormInput(_props: FormInputProps) {
       placeholder={_props.placeholder}
       value={_props.value}
       onChange={_props.onChange}
+      ref={_props.inputRef}
     />
   )
 }

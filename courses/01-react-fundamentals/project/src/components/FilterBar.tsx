@@ -1,4 +1,4 @@
-import FormInput from "./FormInput"
+import { useEffect, useRef } from "react"
 
 interface FilterBarProps {
   filter: 'all' | 'active' | 'completed'
@@ -9,10 +9,18 @@ interface FilterBarProps {
   onSearchChange?: (search: string) => void
   categoryFilter: string
   onCategoryChange: (category: string) => void
-  categories: string[]
+  categories?: string[]
 }
 
 export default function FilterBar(_props: FilterBarProps) {
+  const searchInputRef = useRef<HTMLInputElement>(null)
+
+  const categories = _props.categories ?? []
+
+  useEffect(() => {
+    searchInputRef.current?.focus()
+  }, [])
+
   return <div id="filter-bar">
     <button
       data-active={_props.filter === 'all'}
@@ -40,20 +48,21 @@ export default function FilterBar(_props: FilterBarProps) {
     >
       <option value="all">All categories</option>
 
-      {_props.categories.map(category => (
+      {categories.map(category => (
         <option key={category} value={category}>
           {category}
         </option>
       ))}
     </select>
 
-    <FormInput id="search-input" label="search-input" type="text" placeholder="Search tasks..." value={_props.search ?? ''} onChange={(e) => _props.onSearchChange?.(e.target.value)} />
     <input
       id="search-input"
       type="text"
-      placeholder="Search tasks..."
+      name="search-input"
       value={_props.search ?? ''}
-      onChange={(e) => _props.onSearchChange?.(e.target.value)}
+      onChange={(e) => _props.onSearchChange?.(e.target.value)} 
+      ref={searchInputRef}
+      placeholder="Search task..."
     />
 
     {_props.search && (
@@ -72,7 +81,6 @@ export default function FilterBar(_props: FilterBarProps) {
       <option value="alphabetical">Alphabetical</option>
       <option value="dueDate">Due Date (Soonest First)</option>
     </select>
-
 
   </div>
 }
