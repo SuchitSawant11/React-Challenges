@@ -8,6 +8,7 @@ import StatsPanel from './StatsPanel'
 import { useTheme } from '../contexts/ThemeContext'
 import Button from './Button'
 import { TaskAction } from '../reducers/taskReducer'
+import ErrorBoundary from './ErrorBoundary'
 
 interface TaskAppProps {
   tasks?: Task[]
@@ -232,15 +233,18 @@ export default function TaskApp(_props: TaskAppProps) {
         </p>
       )}
 
-      <TaskList
-        tasks={displayedTasks}
-        onToggle={handleToggleTask}
-        onDelete={_props.onDelete}
-        onUpdateTask={handleUpdateTask}
-        editingId={editingId}
-        onEdit={setEditingId}
-        onCancelEdit={() => setEditingId(null)}
-      />
+      <ErrorBoundary>
+        <TaskList
+          tasks={displayedTasks}
+          onToggle={handleToggleTask}
+          onDelete={_props.onDelete}
+          onUpdateTask={handleUpdateTask}
+          editingId={editingId}
+          onEdit={setEditingId}
+          onCancelEdit={() => setEditingId(null)}
+        />
+      </ErrorBoundary>
+
     </>
   )
 }
