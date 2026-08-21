@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { mockApi, User } from "./mockServer";
+import { mockApi, User, Post } from "./mockServer";
 
 export const apiSlice = createApi({
     reducerPath: 'api',                 //This tells RTK Query what key it should use in the Redux store.
@@ -32,7 +32,31 @@ export const apiSlice = createApi({
 
             invalidatesTags: [{ type: "User", id: "LIST" }],
         }),
+
+        getPosts: builder.query<Post[], void>({
+            queryFn: async () => {
+                const posts = await mockApi.getPosts()
+                return { data: posts }
+            },
+
+            providesTags: (result) =>
+                result
+                    ? [
+                        ...result.map(({ id }) => ({ type: "Post" as const, id })),
+                        { type: "Post" as const, id: "LIST" },
+                    ]
+                    : [{ type: "Post" as const, id: "LIST" }],
+        }),
+
+        createPost: builder.mutation<Post, Omit<Post, "id">>({
+            queryFn: async (newPost) => {
+                const post = await mockApi.createPost(newPost)
+                return { data: post }
+            },
+
+            invalidatesTags: [{ type: "Post", id: "LIST" }],
+        }),
     })
 })
 
-export const { useGetUsersQuery, useCreateUserMutation } = apiSlice
+export const { useGetUsersQuery, useCreateUserMutation, useGetPostsQuery, useCreatePostMutation } = apiSlice
