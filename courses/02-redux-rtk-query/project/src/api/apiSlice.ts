@@ -71,8 +71,21 @@ export const apiSlice = createApi({
                     patchResult.undo()
                 }
             }
+        }),
+
+        getPostById: builder.query<Post, number>({
+            queryFn: async (id) => {
+                const post = await mockApi.getPostById(id)
+                return { data: post }
+            },
+
+            providesTags: (result, error, id) => [
+                { type: 'Post', id }
+            ]
+
+
         })
     })
 })
 
-export const { useGetUsersQuery, useCreateUserMutation, useGetPostsQuery, useCreatePostMutation } = apiSlice
+export const { useGetUsersQuery, useCreateUserMutation, useGetPostsQuery, useCreatePostMutation, useGetPostByIdQuery } = apiSlice

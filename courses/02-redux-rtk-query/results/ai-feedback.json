@@ -190,5 +190,21 @@
       "overall": "",
       "error": "Groq API error (404): The model `gpt oss 20b` does not exist or you do not have access to it."
     }
+  },
+  {
+    "challengeId": "13-query-parameters",
+    "challengeName": "Query with Parameters and Detail View",
+    "aiReview": {
+      "challengeId": "13-query-parameters",
+      "timestamp": "2026-08-23T12:19:04.401Z",
+      "score": 0,
+      "feedback": [],
+      "strengths": [],
+      "improvements": [],
+      "readability": 0,
+      "maintainability": 0,
+      "overall": "",
+      "error": "Groq API error (404): The model `gpt oss 20b` does not exist or you do not have access to it."
+    }
   }
 ]
