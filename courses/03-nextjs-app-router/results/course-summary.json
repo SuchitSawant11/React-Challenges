@@ -1,11 +1,11 @@
 {
   "courseId": "03-nextjs-app-router",
   "courseName": "Next.js App Router",
-  "lastUpdated": "2026-09-02T08:02:33.827Z",
+  "lastUpdated": "2026-09-02T08:24:21.393Z",
   "totalChallenges": 17,
-  "completedChallenges": 2,
-  "averageScore": 83.9,
-  "completionPercentage": 11.8,
+  "completedChallenges": 3,
+  "averageScore": 83.1,
+  "completionPercentage": 17.6,
   "badgeLevel": "none",
   "challengeResults": [
     {
@@ -19,11 +19,18 @@
       "challengeName": "Server and Client Components",
       "score": 82.78,
       "passed": true
+    },
+    {
+      "challengeId": "03-data-fetching-server",
+      "challengeName": "Data Fetching in Server Components",
+      "score": 81.67,
+      "passed": true
     }
   ],
   "skillStrengths": [
     "App Router, Pages, and Layout",
-    "Server and Client Components"
+    "Server and Client Components",
+    "Data Fetching in Server Components"
   ],
   "improvementAreas": []
 }
