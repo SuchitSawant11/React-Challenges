@@ -1,3 +1,6 @@
+// loadingTsx: The /posts route uses app/posts/loading.tsx as its automatic loading UI.
+// Suspense: Next.js App Router supports Suspense boundaries for streaming synchronous UI.
+
 interface Post {
     id: number
     title: string
