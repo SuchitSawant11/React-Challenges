@@ -64,12 +64,12 @@ npm run review -- --challenge=01-app-router-pages-layout
 
 ## 📊 Progress Evidence
 
-*Auto-updated when you run review. Last run: 2/9/2026, 6:13:12 pm*
+*Auto-updated when you run review. Last run: 2/9/2026, 6:18:40 pm*
 
 | Metric | Value |
 |--------|-------|
-| Challenges completed | 7 / 17 (41.2%) |
-| Average score | 83.5% |
+| Challenges completed | 8 / 17 (47.1%) |
+| Average score | 83.1% |
 
 | Challenge | Skills covered | Status |
 |-----------|----------------|--------|
@@ -80,7 +80,7 @@ npm run review -- --challenge=01-app-router-pages-layout
 | Loading and Streaming | loading.tsx, Streaming, Suspense, Loading UI | Passed |
 | Dynamic Routes | Dynamic Routes, [id], params, generateStaticParams | Passed |
 | Static and Dynamic Rendering | Static Rendering, Dynamic Rendering, force-static, force-dynamic | Passed |
-| SSR (Server-Side Rendering) | SSR, force-dynamic, cache: no-store, Server-side rendering | — |
+| SSR (Server-Side Rendering) | SSR, force-dynamic, cache: no-store, Server-side rendering | Passed |
 | Server Actions and Revalidation | Server Actions, 'use server', revalidatePath, revalidateTag | — |
 | Caching and Revalidating | fetch cache, revalidate, revalidatePath, revalidateTag | — |
 | Error Handling | error.tsx, notFound(), not-found.tsx, Error boundaries | — |
