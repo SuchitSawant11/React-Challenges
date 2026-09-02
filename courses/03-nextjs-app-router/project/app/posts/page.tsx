@@ -1,5 +1,9 @@
 // loadingTsx: The /posts route uses app/posts/loading.tsx as its automatic loading UI.
 // Suspense: Next.js App Router supports Suspense boundaries for streaming synchronous UI.
+// dynamicExport: Next.js route rendering can be controlled with a dynamic export.
+// forceStaticOrDynamic: A route can use force-static or force-dynamic rendering.
+
+export const dynamic = 'force-dynamic'
 
 interface Post {
     id: number
