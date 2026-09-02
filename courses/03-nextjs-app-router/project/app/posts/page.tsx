@@ -3,6 +3,8 @@
 // dynamicExport: Next.js route rendering can be controlled with a dynamic export.
 // forceStaticOrDynamic: A route can use force-static or force-dynamic rendering.
 
+import AddPostForm from "../components/AddPostForm"
+
 export const dynamic = 'force-dynamic'
 
 interface Post {
@@ -27,6 +29,8 @@ export default async function PostsPage() {
 
         return (
             <main>
+                <AddPostForm />
+                
                 <h1>Posts</h1>
 
                 {posts.length === 0 ? (
