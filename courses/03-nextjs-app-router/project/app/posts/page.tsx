@@ -14,7 +14,7 @@ interface Post {
 }
 
 async function getPosts(): Promise<Post[]> {
-    const response = await fetch('https://jsonplaceholder.typicode.com/posts')
+    const response = await fetch('https://jsonplaceholder.typicode.com/posts', { next: { revalidate: 60 } })
 
     if (!response.ok) {
         throw new Error('Failed to fetch posts')
@@ -30,7 +30,7 @@ export default async function PostsPage() {
         return (
             <main>
                 <AddPostForm />
-                
+
                 <h1>Posts</h1>
 
                 {posts.length === 0 ? (
