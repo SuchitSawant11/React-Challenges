@@ -4,23 +4,12 @@
 // revalidatePath: Revalidates the /posts route after a mutation.
 // revalidateTag: Next.js also supports cache revalidation using tags.
 
-import { useState } from 'react'
 import { addPost } from '../actions'
 
 export default function AddPostForm() {
-  const [message, setMessage] = useState('')
-
-  async function handleSubmit(formData: FormData) {
-    try {
-      await addPost(formData)
-      setMessage('Post added successfully!')
-    } catch {
-      setMessage('Failed to add post.')
-    }
-  }
 
   return (
-    <form action={handleSubmit}>
+    <form action={addPost}>
       <div>
         <label htmlFor="title">Title</label>
         <input
@@ -41,8 +30,6 @@ export default function AddPostForm() {
       </div>
 
       <button type="submit">Add Post</button>
-
-      {message && <p>{message}</p>}
     </form>
   )
 }

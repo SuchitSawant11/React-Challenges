@@ -17,8 +17,6 @@ export default function AboutPage() {
             <Link href="/" className="text-blue-500 hover:underline">
                 Home
             </Link>
-
-            <PostsPage />
         </>
     )
 }

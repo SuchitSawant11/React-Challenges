@@ -38,8 +38,8 @@ export default function Home() {
       <Image
         src="/nextjs-logo.png"
         alt="Next.js Logo"
-        width={600}
-        height={400}
+        width={60}
+        height={40}
       />
 
       <ChallengeList />
