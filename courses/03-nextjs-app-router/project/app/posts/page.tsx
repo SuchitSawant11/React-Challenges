@@ -3,9 +3,15 @@
 // dynamicExport: Next.js route rendering can be controlled with a dynamic export.
 // forceStaticOrDynamic: A route can use force-static or force-dynamic rendering.
 
+import { Metadata } from "next"
 import AddPostForm from "../components/AddPostForm"
 
 export const dynamic = 'force-dynamic'
+
+export const metadata: Metadata = {
+    title: 'Posts',
+    description: 'A list of posts fetched from an external API.',
+}
 
 interface Post {
     id: number

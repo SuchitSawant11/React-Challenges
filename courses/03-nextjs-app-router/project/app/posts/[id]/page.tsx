@@ -22,7 +22,7 @@ async function getPostById(id: number): Promise<Post | null> {
     return response.json()
 }
 
-export default async function PostPage(params: { id: string }) {
+export default async function PostPage({ params }: { params: { id: string } }) {
     const id = Number(params.id)
 
     const post = await getPostById(id)

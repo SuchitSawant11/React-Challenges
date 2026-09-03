@@ -8,6 +8,11 @@ import Counter from './components/Counter'
 // appDirectory: This page is inside the Next.js app directory.
 // fileBasedRouting: app/page.tsx maps to the "/" route.
 
+export const metadata = {
+  title: 'Next.js App Router Project',
+  description: 'Complete the challenges to build your Next.js skills!',
+}
+
 export default function Home() {
   return (
     <main>
