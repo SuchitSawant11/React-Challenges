@@ -1,18 +1,42 @@
 'use client'
 
-// useClient: This component is a Client Component.
-// serverComponent: The parent page remains a Server Component.
+// clientComponent: This component runs on the client.
+// useSelector: Reads Redux state from the store.
+// useDispatch: Dispatches Redux actions.
 
-import { useState } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import type { RootState, AppDispatch } from '../store/store'
+import { increment, decrement } from '../store/store'
 
 export default function Counter() {
-    const [count, setCount] = useState(0)
+    const count = useSelector(
+        (state: RootState) => state.counter.value
+    )
+
+    const dispatch = useDispatch<AppDispatch>()
+
     return (
         <div>
-            <p>Count: {count}</p>
+            <h2>Redux Counter</h2>
 
-            <button onClick={() => setCount(count + 1)}>
+            <p data-testid="redux-counter-value">
+                Count: {count}
+            </p>
+
+            <button
+                data-testid="redux-counter-increment"
+                type="button"
+                onClick={() => dispatch(increment())}
+            >
                 Increment
+            </button>
+
+            <button
+                data-testid="redux-counter-decrement"
+                type="button"
+                onClick={() => dispatch(decrement())}
+            >
+                Decrement
             </button>
         </div>
     )
