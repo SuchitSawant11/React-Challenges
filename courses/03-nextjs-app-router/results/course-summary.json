@@ -1,11 +1,11 @@
 {
   "courseId": "03-nextjs-app-router",
   "courseName": "Next.js App Router",
-  "lastUpdated": "2026-09-03T08:27:41.741Z",
+  "lastUpdated": "2026-09-11T13:34:50.870Z",
   "totalChallenges": 17,
-  "completedChallenges": 14,
-  "averageScore": 82.6,
-  "completionPercentage": 82.4,
+  "completedChallenges": 17,
+  "averageScore": 82.5,
+  "completionPercentage": 100,
   "badgeLevel": "silver",
   "challengeResults": [
     {
@@ -91,6 +91,24 @@
       "challengeName": "Search and Pagination",
       "score": 80,
       "passed": true
+    },
+    {
+      "challengeId": "15-redux-toolkit-with-nextjs",
+      "challengeName": "Redux Toolkit with Next.js",
+      "score": 81.67,
+      "passed": true
+    },
+    {
+      "challengeId": "16-rtk-query-with-nextjs",
+      "challengeName": "RTK Query with Next.js",
+      "score": 85,
+      "passed": true
+    },
+    {
+      "challengeId": "17-fullstack-capstone",
+      "challengeName": "Fullstack Capstone",
+      "score": 80,
+      "passed": true
     }
   ],
   "skillStrengths": [
@@ -107,7 +125,10 @@
     "Error Handling",
     "Metadata and SEO",
     "Images and Fonts",
-    "Search and Pagination"
+    "Search and Pagination",
+    "Redux Toolkit with Next.js",
+    "RTK Query with Next.js",
+    "Fullstack Capstone"
   ],
   "improvementAreas": []
 }

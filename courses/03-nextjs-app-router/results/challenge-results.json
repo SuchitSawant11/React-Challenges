@@ -3170,5 +3170,784 @@
       "overall": "",
       "error": "Groq API error (404): The model `llama-3.1-8b-instant` does not exist or you do not have access to it."
     }
+  },
+  {
+    "challengeId": "15-redux-toolkit-with-nextjs",
+    "challengeName": "Redux Toolkit with Next.js",
+    "timestamp": "2026-09-11T12:58:07.383Z",
+    "scores": {
+      "functionalTests": 100,
+      "codeQuality": 100,
+      "architecture": 66.7,
+      "bestPractices": 100,
+      "e2eTests": 100,
+      "aiReview": 0
+    },
+    "totalScore": 81.67,
+    "passed": true,
+    "errors": [],
+    "warnings": [],
+    "testResults": {
+      "score": 100,
+      "passed": true,
+      "totalTests": 3,
+      "passedTests": 3,
+      "failedTests": 0,
+      "details": [
+        {
+          "assertionResults": [
+            {
+              "ancestorTitles": [
+                "",
+                "Challenge 15: Redux Toolkit with Next.js"
+              ],
+              "fullName": " Challenge 15: Redux Toolkit with Next.js should have store with configureStore",
+              "status": "passed",
+              "title": "should have store with configureStore",
+              "duration": 1,
+              "failureMessages": []
+            },
+            {
+              "ancestorTitles": [
+                "",
+                "Challenge 15: Redux Toolkit with Next.js"
+              ],
+              "fullName": " Challenge 15: Redux Toolkit with Next.js should have Client Provider wrapping with Provider and store",
+              "status": "passed",
+              "title": "should have Client Provider wrapping with Provider and store",
+              "duration": 1,
+              "failureMessages": []
+            },
+            {
+              "ancestorTitles": [
+                "",
+                "Challenge 15: Redux Toolkit with Next.js"
+              ],
+              "fullName": " Challenge 15: Redux Toolkit with Next.js should use useSelector or useDispatch in a Client Component",
+              "status": "passed",
+              "title": "should use useSelector or useDispatch in a Client Component",
+              "duration": 0,
+              "failureMessages": []
+            }
+          ],
+          "startTime": 1789131489588,
+          "endTime": 1789131489590,
+          "status": "passed",
+          "message": "",
+          "name": "C:/Users/suchi/challenge-engine-react/courses/03-nextjs-app-router/project/tests/challenge-15.test.tsx"
+        }
+      ]
+    },
+    "lintResults": {
+      "score": 100,
+      "passed": true,
+      "totalIssues": 0,
+      "errors": 0,
+      "warnings": 0,
+      "details": [
+        {
+          "filePath": "C:\\Users\\suchi\\challenge-engine-react\\courses\\03-nextjs-app-router\\project\\app\\layout.tsx",
+          "messages": [],
+          "suppressedMessages": [],
+          "errorCount": 0,
+          "fatalErrorCount": 0,
+          "warningCount": 0,
+          "fixableErrorCount": 0,
+          "fixableWarningCount": 0,
+          "usedDeprecatedRules": []
+        },
+        {
+          "filePath": "C:\\Users\\suchi\\challenge-engine-react\\courses\\03-nextjs-app-router\\project\\app\\providers\\StoreProvider.tsx",
+          "messages": [],
+          "suppressedMessages": [],
+          "errorCount": 0,
+          "fatalErrorCount": 0,
+          "warningCount": 0,
+          "fixableErrorCount": 0,
+          "fixableWarningCount": 0,
+          "usedDeprecatedRules": []
+        },
+        {
+          "filePath": "C:\\Users\\suchi\\challenge-engine-react\\courses\\03-nextjs-app-router\\project\\app\\store\\store.ts",
+          "messages": [],
+          "suppressedMessages": [],
+          "errorCount": 0,
+          "fatalErrorCount": 0,
+          "warningCount": 0,
+          "fixableErrorCount": 0,
+          "fixableWarningCount": 0,
+          "usedDeprecatedRules": []
+        }
+      ]
+    },
+    "architectureResults": {
+      "score": 66.7,
+      "passed": false,
+      "patternsFound": [
+        "configureStore",
+        "Provider",
+        "useSelector",
+        "useDispatch",
+        "Provider",
+        "useSelector",
+        "useDispatch",
+        "Provider"
+      ],
+      "patternsMissing": [
+        "configureStore",
+        "configureStore",
+        "useSelector",
+        "useDispatch"
+      ],
+      "details": [
+        {
+          "file": "app/store/store.ts",
+          "patternsFound": [
+            "configureStore",
+            "Provider",
+            "useSelector",
+            "useDispatch"
+          ],
+          "patternsMissing": []
+        },
+        {
+          "file": "app/providers/StoreProvider.tsx",
+          "patternsFound": [
+            "Provider",
+            "useSelector",
+            "useDispatch"
+          ],
+          "patternsMissing": [
+            "configureStore"
+          ]
+        },
+        {
+          "file": "app/layout.tsx",
+          "patternsFound": [
+            "Provider"
+          ],
+          "patternsMissing": [
+            "configureStore",
+            "useSelector",
+            "useDispatch"
+          ]
+        }
+      ]
+    },
+    "bestPracticesResults": {
+      "score": 100,
+      "passed": true,
+      "issues": [],
+      "details": [],
+      "note": "No best practices requirements specified in challenge"
+    },
+    "e2eResults": {
+      "score": 100,
+      "passed": true,
+      "totalTests": 1,
+      "passedTests": 1,
+      "failedTests": 0,
+      "details": [
+        {
+          "title": "challenge-15.spec.ts",
+          "file": "challenge-15.spec.ts",
+          "column": 0,
+          "line": 0,
+          "specs": [],
+          "suites": [
+            {
+              "title": "Challenge 15: Redux Toolkit with Next.js - E2E",
+              "file": "challenge-15.spec.ts",
+              "line": 7,
+              "column": 6,
+              "specs": [
+                {
+                  "title": "should load app with Redux provider",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 1038,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-09-11T12:58:24.347Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "a220d5623351847681d1-bbccd60014f5d5c7bf52",
+                  "file": "challenge-15.spec.ts",
+                  "line": 8,
+                  "column": 7
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "screenshots": []
+    },
+    "aiReviewResults": {
+      "challengeId": "15-redux-toolkit-with-nextjs",
+      "timestamp": "2026-09-11T12:58:26.019Z",
+      "score": 0,
+      "feedback": [],
+      "strengths": [],
+      "improvements": [],
+      "readability": 0,
+      "maintainability": 0,
+      "overall": "",
+      "error": "Groq API error (404): The model `llama-3.1-8b-instant` does not exist or you do not have access to it."
+    },
+    "aiResults": {
+      "challengeId": "15-redux-toolkit-with-nextjs",
+      "timestamp": "2026-09-11T12:58:26.019Z",
+      "score": 0,
+      "feedback": [],
+      "strengths": [],
+      "improvements": [],
+      "readability": 0,
+      "maintainability": 0,
+      "overall": "",
+      "error": "Groq API error (404): The model `llama-3.1-8b-instant` does not exist or you do not have access to it."
+    }
+  },
+  {
+    "challengeId": "16-rtk-query-with-nextjs",
+    "challengeName": "RTK Query with Next.js",
+    "timestamp": "2026-09-11T13:14:55.863Z",
+    "scores": {
+      "functionalTests": 100,
+      "codeQuality": 100,
+      "architecture": 100,
+      "bestPractices": 100,
+      "e2eTests": 100,
+      "aiReview": 0
+    },
+    "totalScore": 85,
+    "passed": true,
+    "errors": [],
+    "warnings": [],
+    "testResults": {
+      "score": 100,
+      "passed": true,
+      "totalTests": 2,
+      "passedTests": 2,
+      "failedTests": 0,
+      "details": [
+        {
+          "assertionResults": [
+            {
+              "ancestorTitles": [
+                "",
+                "Challenge 16: RTK Query with Next.js"
+              ],
+              "fullName": " Challenge 16: RTK Query with Next.js should have createApi and fetchBaseQuery",
+              "status": "passed",
+              "title": "should have createApi and fetchBaseQuery",
+              "duration": 1,
+              "failureMessages": []
+            },
+            {
+              "ancestorTitles": [
+                "",
+                "Challenge 16: RTK Query with Next.js"
+              ],
+              "fullName": " Challenge 16: RTK Query with Next.js should add API reducer and middleware to store",
+              "status": "passed",
+              "title": "should add API reducer and middleware to store",
+              "duration": 0,
+              "failureMessages": []
+            }
+          ],
+          "startTime": 1789132498046,
+          "endTime": 1789132498047,
+          "status": "passed",
+          "message": "",
+          "name": "C:/Users/suchi/challenge-engine-react/courses/03-nextjs-app-router/project/tests/challenge-16.test.tsx"
+        }
+      ]
+    },
+    "lintResults": {
+      "score": 100,
+      "passed": true,
+      "totalIssues": 0,
+      "errors": 0,
+      "warnings": 0,
+      "details": [
+        {
+          "filePath": "C:\\Users\\suchi\\challenge-engine-react\\courses\\03-nextjs-app-router\\project\\app\\store\\apiSlice.ts",
+          "messages": [],
+          "suppressedMessages": [],
+          "errorCount": 0,
+          "fatalErrorCount": 0,
+          "warningCount": 0,
+          "fixableErrorCount": 0,
+          "fixableWarningCount": 0,
+          "usedDeprecatedRules": []
+        },
+        {
+          "filePath": "C:\\Users\\suchi\\challenge-engine-react\\courses\\03-nextjs-app-router\\project\\app\\store\\store.ts",
+          "messages": [],
+          "suppressedMessages": [],
+          "errorCount": 0,
+          "fatalErrorCount": 0,
+          "warningCount": 0,
+          "fixableErrorCount": 0,
+          "fixableWarningCount": 0,
+          "usedDeprecatedRules": []
+        }
+      ]
+    },
+    "architectureResults": {
+      "score": 100,
+      "passed": true,
+      "patternsFound": [
+        "createApi",
+        "fetchBaseQuery",
+        "useQuery",
+        "useMutation",
+        "createApi",
+        "fetchBaseQuery",
+        "useQuery",
+        "useMutation"
+      ],
+      "patternsMissing": [],
+      "details": [
+        {
+          "file": "app/store/apiSlice.ts",
+          "patternsFound": [
+            "createApi",
+            "fetchBaseQuery",
+            "useQuery",
+            "useMutation"
+          ],
+          "patternsMissing": []
+        },
+        {
+          "file": "app/store/store.ts",
+          "patternsFound": [
+            "createApi",
+            "fetchBaseQuery",
+            "useQuery",
+            "useMutation"
+          ],
+          "patternsMissing": []
+        },
+        {
+          "file": "app/posts/PostsList.tsx",
+          "error": "File does not exist",
+          "patternsFound": [],
+          "patternsMissing": [
+            "createApi",
+            "fetchBaseQuery",
+            "useQuery",
+            "useMutation"
+          ]
+        }
+      ]
+    },
+    "bestPracticesResults": {
+      "score": 100,
+      "passed": true,
+      "issues": [],
+      "details": [],
+      "note": "No best practices requirements specified in challenge"
+    },
+    "e2eResults": {
+      "score": 100,
+      "passed": true,
+      "totalTests": 2,
+      "passedTests": 2,
+      "failedTests": 0,
+      "details": [
+        {
+          "title": "challenge-16.spec.ts",
+          "file": "challenge-16.spec.ts",
+          "column": 0,
+          "line": 0,
+          "specs": [],
+          "suites": [
+            {
+              "title": "Challenge 16: RTK Query with Next.js - E2E",
+              "file": "challenge-16.spec.ts",
+              "line": 7,
+              "column": 6,
+              "specs": [
+                {
+                  "title": "should load app",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 967,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-09-11T13:15:11.338Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "3923c1b5135bbbcbba41-0e9a6faf507f8632a2f4",
+                  "file": "challenge-16.spec.ts",
+                  "line": 8,
+                  "column": 7
+                },
+                {
+                  "title": "should load posts or data page",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 3467,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-09-11T13:15:12.516Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "3923c1b5135bbbcbba41-fa78fb4a2a79576d2e05",
+                  "file": "challenge-16.spec.ts",
+                  "line": 13,
+                  "column": 7
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "screenshots": []
+    },
+    "aiReviewResults": {
+      "challengeId": "16-rtk-query-with-nextjs",
+      "timestamp": "2026-09-11T13:15:16.330Z",
+      "score": 0,
+      "feedback": [],
+      "strengths": [],
+      "improvements": [],
+      "readability": 0,
+      "maintainability": 0,
+      "overall": "",
+      "error": "Groq API error (404): The model `llama-3.1-8b-instant` does not exist or you do not have access to it."
+    },
+    "aiResults": {
+      "challengeId": "16-rtk-query-with-nextjs",
+      "timestamp": "2026-09-11T13:15:16.330Z",
+      "score": 0,
+      "feedback": [],
+      "strengths": [],
+      "improvements": [],
+      "readability": 0,
+      "maintainability": 0,
+      "overall": "",
+      "error": "Groq API error (404): The model `llama-3.1-8b-instant` does not exist or you do not have access to it."
+    }
+  },
+  {
+    "challengeId": "17-fullstack-capstone",
+    "challengeName": "Fullstack Capstone",
+    "timestamp": "2026-09-11T13:34:33.738Z",
+    "scores": {
+      "functionalTests": 100,
+      "codeQuality": 100,
+      "architecture": 50,
+      "bestPractices": 100,
+      "e2eTests": 100,
+      "aiReview": 0
+    },
+    "totalScore": 80,
+    "passed": true,
+    "errors": [],
+    "warnings": [],
+    "testResults": {
+      "score": 100,
+      "passed": true,
+      "totalTests": 3,
+      "passedTests": 3,
+      "failedTests": 0,
+      "details": [
+        {
+          "assertionResults": [
+            {
+              "ancestorTitles": [
+                "",
+                "Challenge 17: Fullstack Capstone"
+              ],
+              "fullName": " Challenge 17: Fullstack Capstone should have dynamic route page",
+              "status": "passed",
+              "title": "should have dynamic route page",
+              "duration": 1,
+              "failureMessages": []
+            },
+            {
+              "ancestorTitles": [
+                "",
+                "Challenge 17: Fullstack Capstone"
+              ],
+              "fullName": " Challenge 17: Fullstack Capstone should have error.tsx or not-found.tsx",
+              "status": "passed",
+              "title": "should have error.tsx or not-found.tsx",
+              "duration": 0,
+              "failureMessages": []
+            },
+            {
+              "ancestorTitles": [
+                "",
+                "Challenge 17: Fullstack Capstone"
+              ],
+              "fullName": " Challenge 17: Fullstack Capstone should have metadata or generateMetadata on dynamic page",
+              "status": "passed",
+              "title": "should have metadata or generateMetadata on dynamic page",
+              "duration": 0,
+              "failureMessages": []
+            }
+          ],
+          "startTime": 1789133676041,
+          "endTime": 1789133676042,
+          "status": "passed",
+          "message": "",
+          "name": "C:/Users/suchi/challenge-engine-react/courses/03-nextjs-app-router/project/tests/challenge-17.test.tsx"
+        }
+      ]
+    },
+    "lintResults": {
+      "score": 100,
+      "passed": true,
+      "totalIssues": 0,
+      "errors": 0,
+      "warnings": 0,
+      "details": [
+        {
+          "filePath": "C:\\Users\\suchi\\challenge-engine-react\\courses\\03-nextjs-app-router\\project\\app\\posts\\[id]\\page.tsx",
+          "messages": [],
+          "suppressedMessages": [],
+          "errorCount": 0,
+          "fatalErrorCount": 0,
+          "warningCount": 0,
+          "fixableErrorCount": 0,
+          "fixableWarningCount": 0,
+          "usedDeprecatedRules": []
+        }
+      ]
+    },
+    "architectureResults": {
+      "score": 50,
+      "passed": false,
+      "patternsFound": [
+        "dynamicSegment",
+        "notFound"
+      ],
+      "patternsMissing": [
+        "useClient",
+        "metadata"
+      ],
+      "details": [
+        {
+          "file": "app/posts/[id]/page.tsx",
+          "patternsFound": [
+            "dynamicSegment",
+            "notFound"
+          ],
+          "patternsMissing": [
+            "useClient",
+            "metadata"
+          ]
+        },
+        {
+          "file": "app/posts/error.tsx",
+          "error": "File does not exist",
+          "patternsFound": [],
+          "patternsMissing": [
+            "dynamicSegment",
+            "useClient",
+            "notFound",
+            "metadata"
+          ]
+        },
+        {
+          "file": "app/not-found.tsx",
+          "error": "File does not exist",
+          "patternsFound": [],
+          "patternsMissing": [
+            "dynamicSegment",
+            "useClient",
+            "notFound",
+            "metadata"
+          ]
+        }
+      ]
+    },
+    "bestPracticesResults": {
+      "score": 100,
+      "passed": true,
+      "issues": [],
+      "details": [],
+      "note": "No best practices requirements specified in challenge"
+    },
+    "e2eResults": {
+      "score": 100,
+      "passed": true,
+      "totalTests": 2,
+      "passedTests": 2,
+      "failedTests": 0,
+      "details": [
+        {
+          "title": "challenge-17.spec.ts",
+          "file": "challenge-17.spec.ts",
+          "column": 0,
+          "line": 0,
+          "specs": [],
+          "suites": [
+            {
+              "title": "Challenge 17: Fullstack Capstone - E2E",
+              "file": "challenge-17.spec.ts",
+              "line": 7,
+              "column": 6,
+              "specs": [
+                {
+                  "title": "should load dynamic post detail page",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 2833,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-09-11T13:34:46.296Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "10801a4643fac957b65b-280b051c09c5da4cb93b",
+                  "file": "challenge-17.spec.ts",
+                  "line": 8,
+                  "column": 7
+                },
+                {
+                  "title": "should have interactive content or form",
+                  "ok": true,
+                  "tags": [],
+                  "tests": [
+                    {
+                      "timeout": 30000,
+                      "annotations": [],
+                      "expectedStatus": "passed",
+                      "projectId": "chromium",
+                      "projectName": "chromium",
+                      "results": [
+                        {
+                          "workerIndex": 0,
+                          "parallelIndex": 0,
+                          "status": "passed",
+                          "duration": 448,
+                          "errors": [],
+                          "stdout": [],
+                          "stderr": [],
+                          "retry": 0,
+                          "startTime": "2026-09-11T13:34:49.354Z",
+                          "annotations": [],
+                          "attachments": []
+                        }
+                      ],
+                      "status": "expected"
+                    }
+                  ],
+                  "id": "10801a4643fac957b65b-3686cfc4fb575f2d1437",
+                  "file": "challenge-17.spec.ts",
+                  "line": 14,
+                  "column": 7
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "screenshots": []
+    },
+    "aiReviewResults": {
+      "challengeId": "17-fullstack-capstone",
+      "timestamp": "2026-09-11T13:34:50.106Z",
+      "score": 0,
+      "feedback": [],
+      "strengths": [],
+      "improvements": [],
+      "readability": 0,
+      "maintainability": 0,
+      "overall": "",
+      "error": "Groq API error (404): The model `llama-3.1-8b-instant` does not exist or you do not have access to it."
+    },
+    "aiResults": {
+      "challengeId": "17-fullstack-capstone",
+      "timestamp": "2026-09-11T13:34:50.106Z",
+      "score": 0,
+      "feedback": [],
+      "strengths": [],
+      "improvements": [],
+      "readability": 0,
+      "maintainability": 0,
+      "overall": "",
+      "error": "Groq API error (404): The model `llama-3.1-8b-instant` does not exist or you do not have access to it."
+    }
   }
 ]
