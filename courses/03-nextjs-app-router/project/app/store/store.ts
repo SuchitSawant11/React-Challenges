@@ -1,8 +1,13 @@
 import { configureStore, createSlice } from '@reduxjs/toolkit';
+import { api } from './apiSlice';
 
 // Provider: The Redux Provider will expose this store to Client Components.
 // useSelector: Client Components use this hook to read Redux state.
 // useDispatch: Client Components use this hook to dispatch Redux actions.
+// createApi creates the API slice.
+// fetchBaseQuery handles HTTP requests.
+// useQuery is represented by the generated useGetPostsQuery hook.
+// useMutation can be used for mutation endpoints.
 
 interface CounterState {
     value: number;
@@ -30,8 +35,12 @@ export const { increment, decrement } = counterSlice.actions
 
 export const store = configureStore({
     reducer: {
-        counter: counterSlice.reducer
-    }
+        counter: counterSlice.reducer,
+        [api.reducerPath]: api.reducer,
+    },
+
+    middleware: (getDefaultMiddleware) =>
+        getDefaultMiddleware().concat(api.middleware),
 });
 
 export type RootState = ReturnType<typeof store.getState>
